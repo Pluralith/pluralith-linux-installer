@@ -49,8 +49,9 @@ func initWindow() {
 }
 
 func main() {
+	backend.StateStore.InitState()
+	backend.StateStore.InitDirectories()
+
 	initAssets()
 	initWindow()
-
-	backend.StateStore.InitState()
 }

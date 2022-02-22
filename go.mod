@@ -2,7 +2,10 @@ module pluralith-linux-installer
 
 go 1.17
 
-require gioui.org v0.0.0-20211110142422-303b81953991
+require (
+	gioui.org v0.0.0-20211110142422-303b81953991
+	github.com/mitchellh/go-homedir v1.0.0
+)
 
 require (
 	gioui.org/cmd v0.0.0-20220222110410-773a7e48a0f2 // indirect
