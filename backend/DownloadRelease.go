@@ -9,7 +9,6 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-	"runtime"
 	"strconv"
 	"time"
 )
@@ -17,11 +16,10 @@ import (
 func getReleaseUrl() (string, error) {
 	functionName := "getReleaseUrl"
 
-	request, _ := http.NewRequest("GET", "https://api.pluralith.com/v1/dist/download/cli", nil)
+	request, _ := http.NewRequest("GET", "https://api.pluralith.com/v1/dist/download/ui", nil)
 
 	queryString := request.URL.Query()
-	queryString.Add("os", runtime.GOOS)
-	queryString.Add("arch", runtime.GOARCH)
+	queryString.Add("os", "linux")
 	request.URL.RawQuery = queryString.Encode()
 
 	// Execute get version request
