@@ -13,8 +13,8 @@ type State struct {
 	BinDir                      string
 	DownloadProgress            float32
 	DownloadProgressIncrementer chan float32
-	DownloadComplete            bool
 	InstallComplete             bool
+	PluralithLaunched           bool
 }
 
 // Instantiating State store
@@ -22,8 +22,8 @@ var StateStore = &State{}
 
 func (S *State) InitState() {
 	S.DownloadProgress = 0
-	S.DownloadComplete = false
 	S.InstallComplete = false
+	S.PluralithLaunched = false
 }
 
 func (S *State) InitDirectories() error {

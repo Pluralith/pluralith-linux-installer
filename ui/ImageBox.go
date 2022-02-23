@@ -7,6 +7,7 @@ import (
 
 	"gioui.org/layout"
 	"gioui.org/op/paint"
+	"gioui.org/widget"
 )
 
 func ImageBox(gtx layout.Context, size image.Point, imageBytes []byte) layout.Dimensions {
@@ -16,8 +17,7 @@ func ImageBox(gtx layout.Context, size image.Point, imageBytes []byte) layout.Di
 	}
 
 	imageOp := paint.NewImageOp(img)
-	imageOp.Add(gtx.Ops)
-	paint.PaintOp{}.Add(gtx.Ops)
+	dims := widget.Image{Src: imageOp, Scale: 0.5, Fit: widget.ScaleDown}.Layout(gtx)
 
-	return layout.Dimensions{Size: size}
+	return dims
 }
