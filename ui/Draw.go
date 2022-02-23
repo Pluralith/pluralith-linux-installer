@@ -97,6 +97,9 @@ func Draw(window *app.Window) error {
 			if backend.StateStore.DownloadProgress < 1 {
 				backend.StateStore.DownloadProgress += p
 				window.Invalidate()
+			} else {
+				backend.LaunchPluralith()
+				window.Close()
 			}
 		}
 	}

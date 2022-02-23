@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -16,10 +15,11 @@ import (
 func getReleaseUrl() (string, error) {
 	functionName := "getReleaseUrl"
 
-	request, _ := http.NewRequest("GET", "https://api.pluralith.com/v1/dist/download/ui", nil)
+	request, _ := http.NewRequest("GET", "https://api.pluralith.com/v1/dist/download/cli", nil)
 
 	queryString := request.URL.Query()
 	queryString.Add("os", "linux")
+	queryString.Add("arch", "amd64")
 	request.URL.RawQuery = queryString.Encode()
 
 	// Execute get version request
@@ -43,16 +43,18 @@ func getReleaseUrl() (string, error) {
 }
 
 func updateDownloadProgress(binPath string, totalSize float32) {
+	functionName := "updateDownloadProgress"
+
 	for {
-		newFile, err := os.Open(binPath)
-		if err != nil {
-			log.Fatal(err)
+		newFile, newErr := os.Open(binPath)
+		if newErr != nil {
+			fmt.Println(fmt.Errorf("failed to create binary on disk -> %v: %w", functionName, newErr))
 		}
 
 		// Get current download file size
-		currentInfo, err := newFile.Stat()
-		if err != nil {
-			log.Fatal(err)
+		currentInfo, infoErr := newFile.Stat()
+		if infoErr != nil {
+			fmt.Println(fmt.Errorf("failed to retrieve binary information from disk -> %v: %w", functionName, infoErr))
 		}
 		currentSize := currentInfo.Size()
 		if currentSize == 0 {
