@@ -1,4 +1,4 @@
-![GitHub Badge](https://user-images.githubusercontent.com/25454503/157902535-6d0518d5-3715-444f-96af-2c2d3a62bd33.svg)
+![GitHub Badge Blue](https://user-images.githubusercontent.com/25454503/157904061-38a8d819-b85a-45d6-8eb8-164d0522b515.svg)
 # Pluralith Linux Installer
 
 A little helper tool to properly set up the Pluralith UI AppImage and CLI link on Linux.
