@@ -15,6 +15,4 @@ A little helper tool to properly set up the Pluralith UI AppImage and CLI link o
   -  [Dan's Linkedin](https://www.linkedin.com/in/danielputzer/)
   -  [Phi's Linkedin](https://www.linkedin.com/in/philipp-weber-a8517b231/)
 
-*Disclaimer: To properly use this CLI you **will need** the **Pluralith UI** and/or an **API key**. [Sign up](https://www.pluralith.com) for the private alpha to get access!*
-
 ![Subreddit subscribers](https://img.shields.io/reddit/subreddit-subscribers/pluralith?style=social)
